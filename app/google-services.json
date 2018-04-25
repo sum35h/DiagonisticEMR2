@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "492434051743",
+    "firebase_url": "https://diagonisticemr2.firebaseio.com",
+    "project_id": "diagonisticemr2",
+    "storage_bucket": "diagonisticemr2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:492434051743:android:643340c4c188759a",
+        "android_client_info": {
+          "package_name": "apps.sumesh.android.diagonisticemr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "492434051743-od9kgc9ol6tcigjafulabqvqd7hmpbig.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "apps.sumesh.android.diagonisticemr",
+            "certificate_hash": "c380dc08a9f077a03a22ea8261e1e4c05e11d6c7"
+          }
+        },
+        {
+          "client_id": "492434051743-aun3op4cctqt1v9rlbqjflqt3r8c3533.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEx9jsQPdhmB-RjLEMx3ZI8pBIA91yHkc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "492434051743-aun3op4cctqt1v9rlbqjflqt3r8c3533.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="apps.sumesh.android.diagonisticemr.MainActivity">
+
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/bg"
+            />
+        <RelativeLayout
+            android:id="@+id/relativelayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <TextView
+                android:id="@+id/title_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="130dp"
+                android:gravity="center_horizontal"
+
+                android:text="Diagonistic EMR"
+                android:textColor="#FFF"
+                android:textSize="50sp"
+
+                />
+            <TextView
+                android:id="@+id/subtitle_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title_tv"
+                android:layout_marginTop="0dp"
+                android:gravity="center_horizontal"
+                android:letterSpacing="0.1"
+                android:text="HealthCare App with Diagonistic Services"
+                android:textColor="#FFF"
+                android:textSize="16sp"
+
+                />
+
+            <Button
+                android:id="@+id/signin_btn"
+                android:layout_width="152dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="69dp"
+                android:gravity="center"
+                android:text="LOGIN"
+
+                />
+
+        </RelativeLayout>
+
+</FrameLayout>
