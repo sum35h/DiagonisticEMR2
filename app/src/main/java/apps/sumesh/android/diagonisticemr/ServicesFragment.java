@@ -45,6 +45,17 @@ public class ServicesFragment extends Fragment {
                 v.getContext().startActivity(i);
             }
         });
+        Button dia_predict=(Button)v.findViewById(R.id.dia_pridict_but);
+
+
+        dia_predict.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(v.getContext(),Predict_dia_client.class);
+
+                v.getContext().startActivity(i);
+            }
+        });
         return  v;
     }
 

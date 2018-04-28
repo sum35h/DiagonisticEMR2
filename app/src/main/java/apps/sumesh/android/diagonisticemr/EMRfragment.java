@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -65,21 +66,21 @@ public class EMRfragment extends Fragment {
 //
         data = new ArrayList<EMR_Model>();
 //
-        data.add(new EMR_Model(
-                "Saurabh",
-                "Cancer" ,
-                "muasdadsic"
-
-        ));
-        data.add(new EMR_Model(
-                "Shantam",
-                "AIDS",
-                "dancasdasde"
-
-        ));
+//        data.add(new EMR_Model(
+//                "Saurabh",
+//                "Cancer" ,
+//                "muasdadsic"
+//
+//        ));
+//        data.add(new EMR_Model(
+//                "Shantam",
+//                "AIDS",
+//                "dancasdasde"
+//
+//        ));
         final ArrayList<EMR_Model> eventsList = new ArrayList<EMR_Model>();
         FirebaseFirestore db=FirebaseFirestore.getInstance();
-        db.collection("EMR").addSnapshotListener(new EventListener<QuerySnapshot>() {
+        db.collection("EMR").whereEqualTo("email", FirebaseAuth.getInstance().getCurrentUser().getEmail()).addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(QuerySnapshot value, FirebaseFirestoreException e) {
                 if(e==null)

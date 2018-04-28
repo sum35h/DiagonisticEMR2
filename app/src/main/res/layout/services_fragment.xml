@@ -6,13 +6,27 @@
 <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="ML services"
-    android:textSize="34dp"/>
+    android:text="Diagonistic Services"
+    android:textSize="34dp"
+    android:textColor="@android:color/white"/>
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
         android:text="Disease Prediction "
         android:id="@+id/disease_pridict_but"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        android:layout_margin="10dp"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="Diabetese Prediction "
+        android:id="@+id/dia_pridict_but"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        android:layout_margin="10dp"/>
 </LinearLayout>

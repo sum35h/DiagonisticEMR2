@@ -24,11 +24,16 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".EMR_select" />
         <activity android:name=".EMR_Diabetes_From" />
+        <activity android:name=".EMR_Liver_From" />
         <activity android:name=".EMR_Details" />
         <activity
             android:name=".Predict_disease_client"
             android:label="@string/title_activity_predict_disease_client"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-    </application>
+
+    <activity
+        android:name=".Predict_dia_client"
+        android:theme="@style/AppTheme.NoActionBar"></activity>
+</application>
 
 </manifest>

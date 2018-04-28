@@ -2,7 +2,6 @@ package apps.sumesh.android.diagonisticemr;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -14,20 +13,22 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.FirebaseApp;
-import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class EMR_Diabetes_From extends AppCompatActivity {
-   EditText pregnancies,glucose,insulin,bmi,dpf,thickness,age;
+   EditText pregnancies,glucose,insulin,bmi,dpf,thickness,age,bp;
    EditText patientName,emrType;
    String emr_data;boolean male=true;
    Button create;
-   private DocumentReference mDocRef;
-   private FirebaseFirestore db;
-    private TextInputLayout inputLayoutPregnancy;
+
+ FirebaseFirestore db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FirebaseApp.initializeApp(this);
+        db = FirebaseFirestore.getInstance();
         setContentView(R.layout.activity_emr__diabetes__from);
         patientName=(EditText)findViewById(R.id.patient_name);
        // emrType=(EditText)findViewById(R.id.emr_type);
@@ -36,14 +37,15 @@ public class EMR_Diabetes_From extends AppCompatActivity {
         insulin=(EditText)findViewById(R.id.insulin);
         bmi=(EditText)findViewById(R.id.BMI);
         dpf=(EditText)findViewById(R.id.DPF);
+        bp=(EditText)findViewById(R.id.bp);
         thickness=(EditText)findViewById(R.id.thickness);
          age=(EditText)findViewById(R.id.age);
         create=(Button)findViewById(R.id.btn_create_emr);
 
 
-        FirebaseApp.initializeApp(this);
-        mDocRef= FirebaseFirestore.getInstance().collection("Events").document();
-        db = FirebaseFirestore.getInstance();
+
+
+
         create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,17 +59,18 @@ public class EMR_Diabetes_From extends AppCompatActivity {
     {
         if(male)
             pregnancies.setText("0");
-        emr_data="Age:"+age.getText().toString()+"\nPregnancies:"+pregnancies.getText().toString()+"\ninsulin:"+insulin.getText().toString()+"\nalucose:"+glucose.getText().toString() +"\nBMI:"+bmi.getText().toString()+"\nDPF:"+dpf.getText().toString()+"\nThickness:"+thickness.getText().toString();
+        emr_data="Age:"+age.getText().toString()+"\nPregnancies:"+pregnancies.getText().toString()+"\ninsulin:"+insulin.getText().toString()+"\nalucose:"+glucose.getText().toString() +"\nBMI:"+bmi.getText().toString()+"\nDPF:"+dpf.getText().toString()+"\nThickness:"+thickness.getText().toString()+"\nBlood Pressure:"+bp.getText().toString();
     }
     private void submitForm() {
 
         Log.d("write","infunc");
         String pn = patientName.getText().toString();
+        String email= FirebaseAuth.getInstance().getCurrentUser().getEmail();
         String type = "Diabetese";
 
 
-        EMR_Model emr = new EMR_Model(pn, type, emr_data);
-        db.collection("EMR").document(pn).set(emr).addOnSuccessListener(new OnSuccessListener<Void>() {
+        EMR_Model emr = new EMR_Model(email,pn, type, emr_data);
+        db.collection("EMR").document("ss").set(emr).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
                 Toast.makeText(EMR_Diabetes_From.this, "Success", Toast.LENGTH_SHORT).show();
@@ -81,6 +84,7 @@ public class EMR_Diabetes_From extends AppCompatActivity {
                 Log.d("write","fail");
             }
         });
+
     }
 
 

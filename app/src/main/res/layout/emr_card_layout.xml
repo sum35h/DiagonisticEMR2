@@ -11,19 +11,25 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="0dp">
+        tools:layout_editor_absoluteY="0dp"
+       >
 
 
         <LinearLayout
+            android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+
+            >
 
             <TextView
                 android:id="@+id/patientName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="5dp"
+                android:paddingLeft="8dp"
+                android:paddingTop="5dp"
                 android:text="event name"
                 android:textSize="13dp"
                 android:textStyle="bold" />
@@ -33,7 +39,7 @@
                 android:id="@+id/emr_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:paddingLeft="8dp"
                 android:layout_marginTop="4dp"
                 android:text="dfdsfs" />
 

@@ -5,27 +5,49 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".EMR_select">
+    tools:context=".EMR_select"
+    android:background="@drawable/bgmain">
+
  <TextView
+     android:layout_margin="10dp"
      android:layout_width="wrap_content"
      android:layout_height="wrap_content"
      android:layout_gravity="center_horizontal"
      android:text="Select the Type of EMR:"
+     android:textStyle="bold"
+     android:textColor="@android:color/white"
      android:textSize="32dp"/>
  <Button
-     android:layout_width="wrap_content"
+     android:layout_width="match_parent"
      android:layout_height="wrap_content"
      android:id="@+id/diabetes"
      android:layout_gravity="center_horizontal"
      android:text="Diabetes"
+     android:background="@color/colorPrimary"
+     android:textColor="@android:color/white"
+     android:layout_margin="10dp"
+     />
+ <Button
+
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:id="@+id/liver"
+     android:layout_gravity="center_horizontal"
+     android:text="Liver"
+     android:background="@color/colorPrimary"
+     android:textColor="@android:color/white"
+     android:layout_margin="10dp"
 
      />
  <Button
-     android:layout_width="wrap_content"
+
+     android:layout_width="match_parent"
      android:layout_height="wrap_content"
      android:id="@+id/Other"
      android:text="Other"
      android:layout_gravity="center_horizontal"
-
-     />f
+     android:background="@color/colorPrimary"
+     android:textColor="@android:color/white"
+     android:layout_margin="10dp"
+     />
 </LinearLayout>
