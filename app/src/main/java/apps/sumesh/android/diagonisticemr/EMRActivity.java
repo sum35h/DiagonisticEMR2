@@ -1,5 +1,6 @@
 package apps.sumesh.android.diagonisticemr;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
@@ -123,10 +124,10 @@ public class EMRActivity extends AppCompatActivity
             transaction.commit();
         }
 
-        else if (id == R.id.nav_share) {
+        else if (id == R.id.Log_out) {
+               FirebaseAuth.getInstance().signOut();
 
-        } else if (id == R.id.nav_download) {
-
+               startActivity(new Intent(this,MainActivity.class));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

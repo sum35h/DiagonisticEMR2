@@ -34,13 +34,13 @@ public class ServicesFragment extends Fragment {
                              Bundle savedInstanceState) {
        final  View v= inflater.inflate(R.layout.services_fragment, container, false);
 
-        Button disease_predict=(Button)v.findViewById(R.id.disease_pridict_but);
+        Button liver_predict=(Button)v.findViewById(R.id.liver_pridict_but);
 
 
-        disease_predict.setOnClickListener(new View.OnClickListener() {
+        liver_predict.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(v.getContext(),Predict_disease_client.class);
+                Intent i = new Intent(v.getContext(),Predict_liver_client.class);
 
                 v.getContext().startActivity(i);
             }

@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".EMR_select"
-    android:background="@drawable/bgmain">
+
+   >
 
  <TextView
      android:layout_margin="10dp"
@@ -15,7 +16,7 @@
      android:layout_gravity="center_horizontal"
      android:text="Select the Type of EMR:"
      android:textStyle="bold"
-     android:textColor="@android:color/white"
+     android:textColor="@color/colorPrimaryDark"
      android:textSize="32dp"/>
  <Button
      android:layout_width="match_parent"

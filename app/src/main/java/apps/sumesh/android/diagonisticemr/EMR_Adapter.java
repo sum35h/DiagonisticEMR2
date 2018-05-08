@@ -2,13 +2,13 @@ package apps.sumesh.android.diagonisticemr;
 
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -65,9 +65,17 @@ public class EMR_Adapter extends RecyclerView.Adapter<EMR_Adapter.MyViewHolder> 
         holder.cardView.setTag(listPosition);
         Log.v("cardview",ed.getText().toString());
         if(ed.getText().toString().equals("Liver"))
-            holder.cardView.setCardBackgroundColor(Color.	rgb(255, 255, 255));
-        else
-            holder.cardView.setCardBackgroundColor(Color.	rgb(122, 225, 217));
+        {
+           // holder.cardView.setCardBackgroundColor(Color.	rgb(255, 255, 255));
+            ImageView ic=(ImageView)holder.cardView.findViewById(R.id.ic_icon);
+            ic.setImageResource(R.drawable.liver_icon);
+        }
+       else
+        {
+           // holder.cardView.setCardBackgroundColor(Color.	rgb(122, 225, 217));
+             ImageView ic=(ImageView)holder.cardView.findViewById(R.id.ic_icon);
+             ic.setImageResource(R.drawable.dia_icon);
+        }
                 holder.cardView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

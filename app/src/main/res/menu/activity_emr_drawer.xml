@@ -12,20 +12,18 @@
             android:id="@+id/services"
             android:icon="@drawable/service_ic"
             android:title="Diagnostic Services" />
+        <item
+            android:id="@+id/Log_out"
+            android:icon="@drawable/ic_power_settings_new_black_24dp"
+            android:title="Logout" />
 
     </group>
 
-    <item android:title="Utilities">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_download"
-                android:icon="@drawable/ic_dowload"
-                android:title="Download EMR" />
-        </menu>
-    </item>
+
+
+
+
+
+
 
 </menu>

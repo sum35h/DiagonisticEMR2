@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -58,8 +58,8 @@ public class EMRfragment extends Fragment {
             }
         });
 //
-     //layoutManager = new LinearLayoutManager(getContext());
-        layoutManager=new GridLayoutManager(getContext(),2);
+     layoutManager = new LinearLayoutManager(getContext());
+      //  layoutManager=new GridLayoutManager(getContext(),2);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
@@ -95,6 +95,7 @@ public class EMRfragment extends Fragment {
                     adapter = new EMR_Adapter(eventsList);
                     adapter.notifyDataSetChanged();
                     recyclerView.setAdapter(adapter);
+
                 }
             }
         });

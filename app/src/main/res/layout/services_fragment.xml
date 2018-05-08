@@ -8,13 +8,14 @@
     android:layout_height="wrap_content"
     android:text="Diagonistic Services"
     android:textSize="34dp"
-    android:textColor="@android:color/white"/>
+    android:textColor="@color/colorPrimaryDark"/>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:text="Disease Prediction "
-        android:id="@+id/disease_pridict_but"
+        android:text="Diabetese Prediction "
+        android:id="@+id/dia_pridict_but"
         android:layout_gravity="center_horizontal"
         android:background="@color/colorPrimary"
         android:textColor="@android:color/white"
@@ -23,8 +24,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:text="Diabetese Prediction "
-        android:id="@+id/dia_pridict_but"
+        android:text="Liver Prediction "
+        android:id="@+id/liver_pridict_but"
         android:layout_gravity="center_horizontal"
         android:background="@color/colorPrimary"
         android:textColor="@android:color/white"

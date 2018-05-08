@@ -1,5 +1,6 @@
 package apps.sumesh.android.diagonisticemr;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -70,12 +71,13 @@ public class EMR_Diabetes_From extends AppCompatActivity {
 
 
         EMR_Model emr = new EMR_Model(email,pn, type, emr_data);
-        db.collection("EMR").document("ss").set(emr).addOnSuccessListener(new OnSuccessListener<Void>() {
+        db.collection("EMR").document(pn+""+type).set(emr).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
                 Toast.makeText(EMR_Diabetes_From.this, "Success", Toast.LENGTH_SHORT).show();
                 Log.d("write","done");
-                finish();
+                startActivity(new Intent(getApplicationContext(), EMRActivity.class));
+               // finish();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
