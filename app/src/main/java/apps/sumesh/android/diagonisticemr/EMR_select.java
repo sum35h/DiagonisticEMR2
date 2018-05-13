@@ -14,6 +14,8 @@ public class EMR_select extends AppCompatActivity {
         setContentView(R.layout.activity_emr_select);
         Button diabets=findViewById(R.id.diabetes);
         Button liver=findViewById(R.id.liver);
+        Button breast=findViewById(R.id.breast);
+
         diabets.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -26,6 +28,14 @@ public class EMR_select extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i=new Intent(getApplicationContext(),EMR_Liver_From.class);
+                startActivity(i);
+            }
+        });
+
+        breast.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(getApplicationContext(),EMR_Breast_From.class);
                 startActivity(i);
             }
         });

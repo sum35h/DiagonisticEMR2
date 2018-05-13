@@ -49,8 +49,8 @@ public class MainActivity extends AppCompatActivity
 
 
         signinButton = (Button) findViewById(R.id.signin_btn);
-        titleTextView = (TextView) findViewById(R.id.title_tv);
-        subtitleTextView = (TextView) findViewById(R.id.subtitle_tv);
+       // titleTextView = (TextView) findViewById(R.id.title_tv);
+      //  subtitleTextView = (TextView) findViewById(R.id.subtitle_tv);
 
 
         if (Build.VERSION.SDK_INT >= 21) {
@@ -90,6 +90,14 @@ public class MainActivity extends AppCompatActivity
                 signin();
             }
         });
+
+        Button about_btn=(Button)findViewById(R.id.about_btn);
+        about_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), About_activity.class));
+            }
+        });
     }
 
     private void signin() {
@@ -107,6 +115,7 @@ public class MainActivity extends AppCompatActivity
         if (requestCode == RC_SIGN_IN) {
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
             if (result.isSuccess()) {
+
                 GoogleSignInAccount account = result.getSignInAccount();
                 Log.d(TAG,"success");
                 firebaseAuthWithGoogle(account);

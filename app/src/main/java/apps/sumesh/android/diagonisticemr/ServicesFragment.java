@@ -56,6 +56,17 @@ public class ServicesFragment extends Fragment {
                 v.getContext().startActivity(i);
             }
         });
+
+        Button breast_predict=(Button)v.findViewById(R.id.breast_but);
+        breast_predict.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(v.getContext(),Predict_breast_client.class);
+
+                v.getContext().startActivity(i);
+            }
+        });
+
         return  v;
     }
 

@@ -8,7 +8,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -17,12 +16,15 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class EMR_Diabetes_From extends AppCompatActivity {
-   EditText pregnancies,glucose,insulin,bmi,dpf,thickness,age,bp;
+public class EMR_Breast_From extends AppCompatActivity {
+
    EditText patientName,emrType;
    String emr_data;boolean male=true;
    Button create;
-
+//{"Clump Thickness":5,"Uniformity of Cell Size":1,"Uniformity of Cell Shape":1,"Marginal Adhesion":1,
+// "Single Epithelial Cell Size":2,"Bare Nuclei":1,"Bland Chromatin":3,"Normal Nucleoli":1,"Mitoses":1}
+    EditText clumpThickness,uniformityCellSize,uniformityCellShape,MarginalAdhesion,SingleEpithelialcellSize,
+    BareNuclei,BlandChromatin,NormalNucleoli,Mitoses;
  FirebaseFirestore db;
 
     @Override
@@ -30,17 +32,19 @@ public class EMR_Diabetes_From extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         FirebaseApp.initializeApp(this);
         db = FirebaseFirestore.getInstance();
-        setContentView(R.layout.activity_emr__diabetes__from);
-        patientName=(EditText)findViewById(R.id.patient_name);
-       // emrType=(EditText)findViewById(R.id.emr_type);
-        pregnancies=(EditText)findViewById(R.id.input_pregnancies);
-        glucose=(EditText)findViewById(R.id.glucose);
-        insulin=(EditText)findViewById(R.id.insulin);
-        bmi=(EditText)findViewById(R.id.BMI);
-        dpf=(EditText)findViewById(R.id.DPF);
-        bp=(EditText)findViewById(R.id.bp);
-        thickness=(EditText)findViewById(R.id.thickness);
-         age=(EditText)findViewById(R.id.age);
+        setContentView(R.layout.activity_emr__brease__from);
+        patientName=(EditText)findViewById(R.id.input_patient_name);
+        clumpThickness=(EditText)findViewById(R.id.input_ClumpThickness);
+        uniformityCellShape=(EditText)findViewById(R.id.input_uniformityCellShape);
+        uniformityCellSize=(EditText)findViewById(R.id.input_uniformityCellSize);
+        MarginalAdhesion=(EditText)findViewById(R.id.input_MarginalAdhesion);
+        SingleEpithelialcellSize=(EditText)findViewById(R.id.input_singleEpithelialCellSize);
+        BareNuclei=(EditText)findViewById(R.id.input_BareNuclei);
+        BlandChromatin=(EditText)findViewById(R.id.input_blandChromatin);
+        NormalNucleoli=(EditText)findViewById(R.id.input_normalNucleoli);
+        Mitoses=(EditText)findViewById(R.id.input_mitoses);
+
+
         create=(Button)findViewById(R.id.btn_create_emr);
 
 
@@ -58,23 +62,22 @@ public class EMR_Diabetes_From extends AppCompatActivity {
     }
     public void make_emr()
     {
-        if(male)
-            pregnancies.setText("0");
-        emr_data="Age:"+age.getText().toString()+"\nPregnancies:"+pregnancies.getText().toString()+"\nInsulin:"+insulin.getText().toString()+"\nglucose:"+glucose.getText().toString() +"\nBMI:"+bmi.getText().toString()+"\nDPF:"+dpf.getText().toString()+"\nThickness:"+thickness.getText().toString()+"\nBlood Pressure:"+bp.getText().toString();
+
+        emr_data="Clump Thickness:"+clumpThickness.getText().toString()+"\nUniformity of Cell Shape:"+uniformityCellShape.getText().toString()+"\nUniformity of Cell Size:"+uniformityCellSize.getText().toString()+"\nMarginal Adhesion:"+MarginalAdhesion.getText().toString() +"\nSingle Epithelial Cell Size:"+SingleEpithelialcellSize.getText().toString()+"\nBare Nuclei:"+BareNuclei.getText().toString()+"\nBland Chromatin:"+BlandChromatin.getText().toString()+"\nNormal nucleoli:"+NormalNucleoli.getText().toString()+"\nMitoses:"+Mitoses.getText().toString();
     }
     private void submitForm() {
 
         Log.d("write","infunc");
         String pn = patientName.getText().toString();
         String email= FirebaseAuth.getInstance().getCurrentUser().getEmail();
-        String type = "Diabetes";
+        String type = "BreastCancer";
 
 
         EMR_Model emr = new EMR_Model(email,pn, type, emr_data);
         db.collection("EMR").document(pn+""+type).set(emr).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-                Toast.makeText(EMR_Diabetes_From.this, "Success", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EMR_Breast_From.this, "Success", Toast.LENGTH_SHORT).show();
                 Log.d("write","done");
                 startActivity(new Intent(getApplicationContext(), EMRActivity.class));
                // finish();
@@ -82,7 +85,7 @@ public class EMR_Diabetes_From extends AppCompatActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(EMR_Diabetes_From.this, "Failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EMR_Breast_From.this, "Failed", Toast.LENGTH_SHORT).show();
                 Log.d("write","fail");
             }
         });
@@ -92,22 +95,5 @@ public class EMR_Diabetes_From extends AppCompatActivity {
 
 
 
-    public void onRadioButtonClicked(View view) {
-        // Is the button now checked?
-        boolean checked = ((RadioButton) view).isChecked();
 
-        // Check which radio button was clicked
-        switch(view.getId()) {
-            case R.id.gender_male:
-                if (checked)
-                    pregnancies.setVisibility(View.GONE);
-                    male=true;
-                    break;
-            case R.id.gender_female:
-                if (checked)
-                    pregnancies.setVisibility(View.VISIBLE);
-                male=false;
-                    break;
-        }
-    }
 }

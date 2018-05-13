@@ -1,5 +1,6 @@
 package apps.sumesh.android.diagonisticemr;
 
+import android.app.ActivityManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -18,7 +19,6 @@ import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.Picasso;
-
 public class EMRActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private FirebaseUser user;
@@ -127,11 +127,20 @@ public class EMRActivity extends AppCompatActivity
         else if (id == R.id.Log_out) {
                FirebaseAuth.getInstance().signOut();
 
+            ((ActivityManager)getApplicationContext().getSystemService(ACTIVITY_SERVICE))
+                    .clearApplicationUserData();
+
                startActivity(new Intent(this,MainActivity.class));
+        }
+        else if (id == R.id.about) {
+            FirebaseAuth.getInstance().signOut();
+
+            startActivity(new Intent(this,About_activity.class));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }

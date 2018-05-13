@@ -70,11 +70,17 @@ public class EMR_Adapter extends RecyclerView.Adapter<EMR_Adapter.MyViewHolder> 
             ImageView ic=(ImageView)holder.cardView.findViewById(R.id.ic_icon);
             ic.setImageResource(R.drawable.liver_icon);
         }
-       else
+       else if((ed.getText().toString().equals("Diabetes"))||(ed.getText().toString().equals("Diabetese")))
         {
-           // holder.cardView.setCardBackgroundColor(Color.	rgb(122, 225, 217));
-             ImageView ic=(ImageView)holder.cardView.findViewById(R.id.ic_icon);
-             ic.setImageResource(R.drawable.dia_icon);
+            // holder.cardView.setCardBackgroundColor(Color.	rgb(122, 225, 217));
+            ImageView ic=(ImageView)holder.cardView.findViewById(R.id.ic_icon);
+            ic.setImageResource(R.drawable.dia_icon);
+        }
+        else
+        {
+            // holder.cardView.setCardBackgroundColor(Color.	rgb(122, 225, 217));
+            ImageView ic=(ImageView)holder.cardView.findViewById(R.id.ic_icon);
+            ic.setImageResource(R.drawable.bre_icon);
         }
                 holder.cardView.setOnClickListener(new View.OnClickListener() {
                     @Override

@@ -4,10 +4,10 @@ import java.io.Serializable;
 
 public class EMR_Model implements Serializable
 {
-    String patient_name;
-    String EMR;
-    String data;
-    String email;
+        String patient_name;
+        String EMR;
+        String data;
+        String email;
 
 
     public String getEmail() {
